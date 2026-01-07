@@ -5,7 +5,6 @@
 
 ## 🎮 遊戲試玩 (Demo)
 [點擊這裡開始玩！](https://heifanyoutube.github.io/snake-game/)
-*(請將連結中的 `你的GitHub帳號` 替換成你真實的帳號)*
 
 ## ✨ 特色
 - **跨平台支援**：電腦用鍵盤，手機用滑動手勢。
