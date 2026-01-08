@@ -7,12 +7,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
-        <h1>貪食蛇 Snake Game</h1>
+    <div class="game-wrapper">
         <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <div id="score">分數: 0</div>
-        <p class="instructions">電腦: 方向鍵 | 手機: 滑動螢幕</p>
+        
+        <div class="ui-panel">
+            <span id="scoreText">分數: 0</span>
+        </div>
+
+        <div id="gameMenu" class="menu-overlay">
+            <h1 id="menuTitle">貪食蛇</h1>
+            
+            <div class="setting-group">
+                <label id="lblLang">語言 / Language</label>
+                <select id="selLang" onchange="updateLanguage()">
+                    <option value="zh">繁體中文</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label id="lblDiff">難度 / Mode</label>
+                <select id="selDiff">
+                    <option value="150">簡單 (Easy)</option>
+                    <option value="100" selected>普通 (Normal)</option>
+                    <option value="50">困難 (Hard)</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label id="lblPlat">操作 / Platform</label>
+                <select id="selPlat" onchange="updateInstructions()">
+                    <option value="pc">電腦 (鍵盤)</option>
+                    <option value="mobile">手機 (觸控)</option>
+                </select>
+            </div>
+
+            <p id="instructions" class="hint-text">使用方向鍵移動</p>
+            
+            <button id="btnStart" onclick="startGame()">開始遊戲</button>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
