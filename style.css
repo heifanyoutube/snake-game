@@ -10,30 +10,113 @@ body {
     overflow: hidden; /* 防止整個頁面捲動 */
 }
 
-.game-container {
-    text-align: center;
-    width: 100%;
+.game-wrapper {
+    position: relative; /* 作為定位基準點 */
+    width: 400px;
+    height: 460px; /* 包含分數列的高度 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 canvas {
     border: 5px solid #ecf0f1;
     background-color: #000;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    max-width: 90vw; /* 確保手機螢幕放得下 */
-    max-height: 90vw;
+    display: block;
     
-    /* 關鍵：禁止瀏覽器預設的觸控捲動行為，讓遊戲專用 */
+    /* 響應式設計：確保手機螢幕放得下 */
+    max-width: 95vw;
+    max-height: 95vw;
+    
+    /* 關鍵：禁止瀏覽器預設的觸控捲動行為 */
     touch-action: none; 
 }
 
-#score {
-    font-size: 24px;
+/* 分數面板 */
+.ui-panel {
+    width: 100%;
+    text-align: center;
     margin-top: 10px;
+    font-size: 24px;
     font-weight: bold;
+    color: #ecf0f1;
 }
 
-.instructions {
+/* 選單覆蓋層 (Overlay) */
+.menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 410px; /* 覆蓋 Canvas 區域 */
+    background-color: rgba(44, 62, 80, 0.95); /* 半透明深色背景 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 用來隱藏選單的 class */
+.hidden {
+    display: none !important;
+}
+
+h1 {
+    margin: 0 0 20px 0;
+    font-size: 36px;
+    color: #e74c3c;
+    text-shadow: 2px 2px #000;
+}
+
+.setting-group {
+    margin-bottom: 12px;
+    width: 70%;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
     font-size: 14px;
     color: #bdc3c7;
-    margin-top: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background: #ecf0f1;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 50px;
+    font-size: 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px #219150;
+    transition: transform 0.1s;
+}
+
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 #219150;
+}
+
+.hint-text {
+    font-size: 13px;
+    color: #95a5a6;
+    margin-top: 15px;
 }
